@@ -16,6 +16,12 @@ The immediate goal of this module is to establish a robust, low-latency pipeline
 * Detect and map the 21 3D hand landmarks natively provided by the MediaPipe framework.
 * Output raw spatial coordinates (X, Y, Z) for future geometric delta calculations.
 
+### 🎹 Phase 1: Fine-Motor Ergonomic Tracking (MVP)
+To validate the coordinate extraction pipeline, the initial MVP focuses on tracking fine-motor degradation using a pianist's hand posture as the testbed. 
+* **Input:** Pre-recorded .mp4 video of a C-major scale from a fixed 45-degree elevated angle (optimizing for X/Y visibility while mitigating finger occlusion).
+* **Processing:** Extract the 21 MediaPipe hand landmarks  frame-by-frame, exporting the `(x, y, z)` spatial data to a structured dataset.
+* **Success Metric:** Programmatically detect a "collapsed wrist" (forearm-to-knuckle angle dropping below a 15-degree threshold) to flag ergonomic failure without human intervention.
+
 ### 🛠️ Tech Stack & Dependencies
 * Python 3.x
 * `mediapipe`
