@@ -1,4 +1,4 @@
-# Real-Time Hand Kinematics Tracker 🖐️👁️
+# Real-Time Biomechanical Kinematics Pipeline (OpenCV / MediaPipe) 🖐️👁️
 ![Status: Active Development](https://img.shields.io/badge/Status-Active_Development-FF9E00)
 ![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=flat&logo=python&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-Computer_Vision-5C3EE8?style=flat&logo=opencv&logoColor=white)
