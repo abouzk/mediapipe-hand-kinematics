@@ -30,3 +30,5 @@ To validate the coordinate extraction pipeline, the system tracks fine-motor deg
 
 ### 🚀 Getting Started
 *(Setup instructions and usage documentation will be added as the initial architecture is committed.)*
+
+[Engineering Log](https://github.com/abouzk/systems-engineering-notebook/edit/main/logs/mediapipe-hand-kinematics-log.md)
