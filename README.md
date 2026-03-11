@@ -16,11 +16,11 @@ The immediate goal of this module is to establish a robust, low-latency pipeline
 * Detect and map the 21 3D hand landmarks natively provided by the MediaPipe framework.
 * Output raw spatial coordinates (X, Y, Z) for future geometric delta calculations.
 
-### 🎹 Phase 1: Fine-Motor Ergonomic Tracking (MVP)
-To validate the coordinate extraction pipeline, the initial MVP focuses on tracking fine-motor degradation using a pianist's hand posture as the testbed. 
-* **Input:** Pre-recorded .mp4 video of a C-major scale from a fixed 45-degree elevated angle (optimizing for X/Y visibility while mitigating finger occlusion).
-* **Processing:** Extract the 21 MediaPipe hand landmarks  frame-by-frame, exporting the `(x, y, z)` spatial data to a structured dataset.
-* **Success Metric:** Programmatically detect a "collapsed wrist" (forearm-to-knuckle angle dropping below a 15-degree threshold) to flag ergonomic failure without human intervention.
+### 🎹 Architecture Roadmap: Fine-Motor Ergonomic Tracking
+To validate the coordinate extraction pipeline, the system tracks fine-motor degradation using a pianist's hand posture as the testbed, measured by a "collapsed wrist" geometric threshold (< 15 degrees).
+
+* **Phase 1: Real-Time Telemetry MVP (Current):** Establish the live ingestion pipeline using `cv2.VideoCapture(0)`. This proves the low-latency capability of the edge-AI model to extract real-time `(X,Y,Z)` deltas from a live biomechanical target.
+* **Phase 2: Asynchronous Batch Processing (Next Sprint):** Transition the ingestion module to process pre-recorded `.mp4` video files. This allows the system to analyze historical, 2D footage of virtuoso pianists (e.g., Martha Argerich) to establish baseline pedagogical dexterity metrics against our domain expert's requirements.
 
 ### 🛠️ Tech Stack & Dependencies
 * Python 3.x
