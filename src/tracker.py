@@ -11,9 +11,26 @@ Architecture Pipeline:
 import cv2
 import mediapipe as mp
 
+def check_mediapipe_compatibility():
+    """Validate that the installed MediaPipe build has the required solutions API."""
+    version = getattr(mp, "__version__", "unknown")
+    if not hasattr(mp, "solutions"):
+        print("[ERROR] Incompatible MediaPipe installation detected.")
+        print(f"[ERROR] Installed version: {version}")
+        print("[ERROR] This project requires a MediaPipe build that has `mp.solutions`.")
+        print("[FIX] Run: pip install mediapipe==0.10.14")
+        return False
+
+    if version != "0.10.14":
+        print(f"[WARN] MediaPipe version is {version}; tested target is 0.10.14.")
+    return True
+
 def main():
     # --- SYSTEM INITIALIZATION ---
     print("[SYSTEM] Initializing AI Inference Engine...")
+    if not check_mediapipe_compatibility():
+        return
+
     mp_hands = mp.solutions.hands
     # Configure model: Max 1 hand for performance, 70% confidence thresholds for strict validation
     hands = mp_hands.Hands(max_num_hands=1, min_detection_confidence=0.7, min_tracking_confidence=0.7)
